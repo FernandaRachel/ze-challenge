@@ -1,0 +1,23 @@
+div.search {
+    display: flex;
+    justify-content: center;
+}
+
+.search-field {
+    width: 50%;
+    height: 48px;
+    border-width: 1px;
+    border-radius: 8px;
+    font-weight: lighter;
+    box-sizing: border-box;
+    color: #333;
+    background-color: #ffffff;
+    line-height: 20px;
+    font-family: Roboto;
+    border: 1px solid #ccc;
+    padding-right: 20px;
+    z-index: 1;
+    padding-left: 48px;
+    font-size: 16px;
+    border-color: #999;
+}
