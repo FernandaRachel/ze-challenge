@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getProductList from '../../services/products-list';
+import { searchDelivery } from '../../services/products-list.service';
 import SearchField from '../../shared/search-field/search-field';
 
 class MainPage extends Component {
@@ -8,14 +8,12 @@ class MainPage extends Component {
     }
 
     componentDidMount() {
-        getProductList();
+        searchDelivery();
     }
 
     render() {
         return (
-            <div>
-                <SearchField />
-            </div>
+            <SearchField />
         );
     }
 }

@@ -4,6 +4,8 @@ import Routes from '../src/routes';
 import './index.css';
 import Footer from './shared/footer/footer';
 import Header from './shared/header/header';
+require("babel-core/register");
+require("babel-polyfill");
 
 class App extends React.Component {
     render() {

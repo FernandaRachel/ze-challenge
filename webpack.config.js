@@ -9,14 +9,33 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.(js)$/, use: 'babel-loader' },
-            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            },
+            { test: /\.(css|scss)$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+            {
+                test: /\.(jpe?g|gif|png|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000
+                        }
+                    }
+                ]
+            }
         ],
     },
+
     mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
+        // new ExtractTextPlugin('style.css'),
     ],
 }

@@ -5,7 +5,7 @@ const Header = props => {
   
     return (
         <div className="header">
-            
+            <img src={require('./../../assets/images/ze-logo.png')}></img>
         </div>
     )
 }
