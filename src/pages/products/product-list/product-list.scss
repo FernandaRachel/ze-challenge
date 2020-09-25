@@ -20,10 +20,12 @@
             justify-content: center;
             box-shadow: 0.4em -1px 9px #999999a6;
             border-radius: 0.5em;
-            width: 13em;
-            height: 16em;
+            width: 11em;
+            height: auto;
             margin: 2em;
             flex-direction: column;
+            align-items: center;
+
             hr {
                 margin: 0;
                 width: 100%;
@@ -33,12 +35,35 @@
     }
 
     .product-image {
-        height: 96px;
-        align-self: center;
-        padding: 4px;
+        width: 5em;
     }
 }
 
 .float-left {
     float: left;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1em;
+
+    button {
+        padding: 0.5em;
+        border: none;
+        width: 4em;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .add {
+        background-color: #6de96dc2;
+        border-radius: 0 0.5em 0.5em 0;
+    }
+
+    .remove {
+        background-color: #ec3535;
+        border-radius: 0.5em 0 0 0.5em;
+    }
 }

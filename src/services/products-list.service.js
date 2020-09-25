@@ -1,8 +1,8 @@
 import axios from 'axios';
 import urls from '../../src/utils/url-config';
 
-export const searchDelivery = () => {
-    axios.post(urls['graphql'], {
+export const searchDelivery = (lat, lng) => {
+    const promise = axios.post(urls['graphql'], {
         query: `query pocSearchMethod($now: DateTime!, $algorithm: String!, $lat: String!, $long: String!) {
             pocSearch(now: $now, algorithm: $algorithm, lat: $lat, long: $long) {
                 __typename
@@ -55,8 +55,10 @@ export const searchDelivery = () => {
         }`,
         variables: {
             algorithm: 'NEAREST',
-            lat: '-23.632919',
-            long: '-46.699453',
+            lat: lat,
+            long: lng,
+            // lat: '-23.632919',
+            // long: '-46.699453',
             now: '2017-08-01T20:00:00.000Z'
         }
     },
@@ -65,13 +67,16 @@ export const searchDelivery = () => {
                 'Content-Type': 'application/json'
             }
         })
-        .then((resp) => {
-            console.log(resp);
-            return resp;
-        })
+
+    const dataPromise = promise.then((resp) => {
+        console.log(resp);
+        return resp.data;
+    })
+
+    return dataPromise;
 }
 
-export const getProductList = () => {
+export const getProductList = (id) => {
     const promise = axios.post(urls['graphql'], {
         query: `query poc($id: ID!, $categoryId: Int, $search: String){
             poc(id: $id) {
@@ -110,7 +115,7 @@ export const getProductList = () => {
             }
           }`,
         variables: {
-            id: '532',
+            id: id,
             search: '',
             categoryId: null
         }

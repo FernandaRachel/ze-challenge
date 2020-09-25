@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './product-list.scss';
+import currencyFormatter from '../../../utils/currency-formatter'
 
 const ProductList = props => {
 
@@ -13,7 +14,11 @@ const ProductList = props => {
                     <hr />
                     <div className="details-box">
                         <h3 className="title">{el.title}</h3>
-                        <p className="float-left"><b>R${el.productVariants[0].price}</b></p>
+                        <p className="float-left"><b>{currencyFormatter.format('br', el.productVariants[0].price)}</b></p>
+                    </div>
+                    <div className="button-group">
+                        <button className="remove" onClick={() => props.removeProduct(index)}>-</button>
+                        <button className="add" onClick={() => props.addProduct(index)}>+</button>
                     </div>
                 </li>;
             productsArr.push(htmlEl);

@@ -1,11 +1,18 @@
 import React from 'react'
-import './header.css';
+import './header.scss';
+import logo from './../../assets/images/ze-logo.png';
 
 const Header = props => {
-  
+
+    const getAddress = () => {
+        const address = sessionStorage.getItem('address');
+        console.log('get', address)
+        return address ? address.replace("",'') : '';
+    }
     return (
         <div className="header">
-            <img src={require('./../../assets/images/ze-logo.png')}></img>
+            <img className="logo" src={logo}></img>
+            <span>{getAddress()}</span>
         </div>
     )
 }

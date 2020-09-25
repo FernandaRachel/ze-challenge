@@ -13,8 +13,12 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader"
-                }
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-proposal-class-properties']
+                    }
+                },
             },
             { test: /\.(css|scss)$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
             {
@@ -35,7 +39,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
         // new ExtractTextPlugin('style.css'),
     ],
 }

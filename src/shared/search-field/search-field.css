@@ -1,6 +1,9 @@
 div.search {
     display: flex;
     justify-content: center;
+    height: 12em;
+    align-items: center;
+    flex-direction: column;
 }
 
 .search-field {
