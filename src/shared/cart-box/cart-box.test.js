@@ -1,30 +1,13 @@
-import React from 'react'
-import ReactDOM, { render } from 'react-dom'
+import React from 'react';
+import renderer from 'react-test-renderer';
 import CartBox from './cart-box'
-import '@testing-library/jest-dom'
-import { create, act } from 'react-test-renderer';
 
-
-jest.mock("./cart-box", () => ({
-    cartList: [],
-}));
-
-let root;
-
-act(() => {
-    root = create(<CartBox cartList={[]}/>)
+describe('CarBox', () => {
+    test('snapshot renders', () => {
+        const arr = [];
+        const component = renderer.create(<CartBox cartList={arr} />);
+        let tree = component.toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });
 
-it('renders OK', () => {
-    expect(root).toBeDefined();
-});
-
-
-// it('Render Products In Cart - CALLED', () => {
-// const spy = jest.spyOn(CartBox, 'renderProductsInCart');
-// expect(spy).toHaveBeenCalled();
-// });
-
-test('Fake test', () => {
-    expect(CartBox).toBeTruthy();
-})

@@ -4,7 +4,7 @@ import './footer.css';
 const Footer = props => {
   
     return (
-        <div className="footer">
+        <div data-testid="main-div" className="footer">
             
         </div>
     )

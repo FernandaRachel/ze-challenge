@@ -17,7 +17,6 @@ class Products extends Component {
         this.addProduct = this.addProduct.bind(this);
         this.removeProduct = this.removeProduct.bind(this);
         const coordenates = JSON.parse(sessionStorage.getItem('coordenates'));
-        console.log(coordenates);
 
         this.callProductList(coordenates);
     }
