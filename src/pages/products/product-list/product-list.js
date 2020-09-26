@@ -17,7 +17,7 @@ const ProductList = props => {
                         <p className="float-left"><b>{currencyFormatter.format('br', el.productVariants[0].price)}</b></p>
                     </div>
                     <div className="button-group">
-                        <button className="remove" onClick={() => props.removeProduct(index)}>-</button>
+                        <button className="remove" onClick={() => props.removeProduct(el.id)}>-</button>
                         <button className="add" onClick={() => props.addProduct(index)}>+</button>
                     </div>
                 </li>;
@@ -25,14 +25,37 @@ const ProductList = props => {
         }
         return productsArr;
     }
+
+    const listCategories = (categories) => {
+        const categoryArr = [];
+        for (let idx = 0; idx < categories.length; idx++) {
+            const el = categories[idx];
+            const htmlEl =
+                <li key={el.id}> {el.title}</li>
+            categoryArr.push(htmlEl)
+        }
+
+        return categoryArr;
+    }
     return (
-        props && props.productList.length ? (
-            <div className="product-list">
-                <ul>
-                    {listProducts(props.productList)}
-                </ul>
-            </div>
-        ) : 'Sem itens'
+
+        <div>
+            {props && props.categoryList.length ?
+                (<div className="category-list">
+                    <ul>{listCategories(props.categoryList)}</ul>
+                </div>) : ''
+            }
+            <h2 className="text-center">Lista de produtos</h2>
+
+            {props && props.productList.length ?
+                (<div className="product-list">
+                    <ul>
+                        {listProducts(props.productList)}
+                    </ul>
+                </div>) : ''
+            }
+        </div>
+        // ) : 'Sem itens'
     )
 }
 

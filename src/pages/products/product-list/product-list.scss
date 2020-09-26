@@ -39,6 +39,23 @@
     }
 }
 
+.category-list {
+    ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+
+        li {
+            text-align: center;
+            border-radius: 1em;
+            border: 2px solid #ede61a5c;
+            box-shadow: 3px 2px #e7b5015e;
+            padding: 1em;
+            width: 5em;
+        }
+    }
+}
+
 .float-left {
     float: left;
 }

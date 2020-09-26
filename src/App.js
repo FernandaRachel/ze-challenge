@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from '../src/routes';
+import Routes from './routes';
 import './index.css';
 import Footer from './shared/footer/footer';
 import Header from './shared/header/header';

@@ -2,14 +2,15 @@
   "name": "ze-challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "App.js",
   "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
     ],
     "plugins": [
-      "transform-es2015-modules-commonjs"
+      "transform-es2015-modules-commonjs",
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "env": {
@@ -29,6 +30,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@testing-library/jest-dom": "^5.11.4",
     "axios": "^0.20.0",
     "babel-node": "0.0.1-security",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",

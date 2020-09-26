@@ -23,6 +23,7 @@ const CartBox = props => {
     return (
         props.cartList.length ?
             (<div className="cart-box">
+                <h3 className="text-center">Carrinho</h3>
                 <ul>
                     {renderProductsInCart(props.cartList)}
                 </ul>

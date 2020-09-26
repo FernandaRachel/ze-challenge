@@ -134,7 +134,7 @@ export const getProductList = (id) => {
     return dataPromise;
 }
 
-export const getAllCategory = () => {
+export const getAllCategory = (id) => {
     const promise = axios.post(urls['graphql'], {
         query: `query allCategoriesSearch {
             allCategory{
@@ -143,7 +143,7 @@ export const getAllCategory = () => {
             }
           }`,
         variables: {
-            id: '532',
+            id: id,
             search: '',
             categoryId: null
         }
