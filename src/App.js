@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
+import './App.scss';
 import './index.css';
+import Routes from './routes';
 import Footer from './shared/footer/footer';
 import Header from './shared/header/header';
 require("babel-core/register");

@@ -1,6 +1,6 @@
-import React from 'react'
-import './header.scss';
+import React from 'react';
 import logo from './../../assets/images/ze-logo.png';
+import './header.scss';
 
 const Header = props => {
 
