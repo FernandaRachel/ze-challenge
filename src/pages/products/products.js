@@ -29,7 +29,6 @@ class Products extends Component {
             const id = deliveries.data.pocSearch ? deliveries.data.pocSearch[0].id : ''
             getProductList(id).then(list => {
                 this.setState({ productList: list.data.poc.products })
-                console.log(this.state.productList);
             })
             getAllCategory(id).then(category => {
                 this.setState({ categoryList: category.data.allCategory })
@@ -41,14 +40,12 @@ class Products extends Component {
     addProduct(index) {
         this.state.cartList.push(this.state.productList[index]);
         this.setState({ cartList: this.state.cartList });
-        console.log(this.state.cartList);
     }
 
     removeProduct(id) {
         const index = this.state.cartList.findIndex(c => c.id === id);
         this.state.cartList.splice(index, 1);
         this.setState({ cartList: this.state.cartList });
-        console.log(this.state.cartList);
     }
 
     render() {

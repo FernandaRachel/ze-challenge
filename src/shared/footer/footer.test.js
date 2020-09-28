@@ -1,24 +1,16 @@
-import { getByTestId } from '@testing-library/dom';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Footer from './footer';
 
-describe('Footer Snapshot', () => {
-    test('snapshot renders', () => {
-        const arr = [];
+describe('Footer', () => {
+    test('Should be defined', () => {
         const component = renderer.create(<Footer />);
-        let tree = component.toJSON();
-        expect(tree).toMatchSnapshot();
+        expect(component).toBeDefined();
     });
-});
-describe('Checking footer', () => {
 
-    test('Have footer class', () => {
-        const arr = [];
+    test('Should have footer class', () => {
         const component = renderer.create(<Footer />);
         let tree = component.toJSON();
-        console.log('tree');
-        console.log(tree);
         expect(tree.props.className).toContain('footer')
     });
 });

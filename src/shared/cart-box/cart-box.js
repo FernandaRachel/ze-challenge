@@ -7,8 +7,8 @@ const CartBox = props => {
         for (let index = 0; index < list.length; index++) {
             const el = list[index];
             const htmlEl =
-                <li key={[list.id, 'cart']}>
-                    <img className="product-image" src={el.images[0].url}></img>
+                <li data-testid="list" key={[list.id, 'cart']}>
+                    <img data-testid="img" className="product-image" src={el.images[0].url}></img>
                     <hr />
                     <div className="details-box">
                         <h3 className="title">{el.title}</h3>
@@ -22,7 +22,7 @@ const CartBox = props => {
 
     return (
         props.cartList.length ?
-            (<div className="cart-box">
+            (<div data-testid="cart" className="cart-box">
                 <h3 className="text-center">Carrinho</h3>
                 <ul>
                     {renderProductsInCart(props.cartList)}

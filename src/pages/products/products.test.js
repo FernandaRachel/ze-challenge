@@ -1,45 +1,31 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Products from './products'
-import axios from 'axios';
-import searchDelivery from '../../services/products-list.service';
+import { searchDelivery } from '../../services/products-list.service';
 
 jest.mock('axios');
-const searchDeliveryMock = jest.mock(searchDelivery);
+jest.mock('../../services/_mocks_/request');
+// const searchDeliveryMock = jest.mock('../../services/products-list.service');
+jest.mock('../../services/products-list.service');
+
+beforeEach(() => {
+    // Clear all instances and calls to constructor and all methods:
+    searchDelivery.mockClear();
+    const coord = {
+        lat: '123',
+        lng: '123'
+    }
+    const mockInstance = new searchDelivery(coord);
+});
 
 
-describe('App', () => {
-    test('should fetch category', () => {
-        const coord = {
-            lat: '123',
-            lng: '123'
-        }
-        const category = [];
-        const resp = { data: category };
-        axios.get.mockResolvedValue(resp);
-        searchDeliveryMock.mockImplementation(() => []);
-        searchDeliveryMock();
-        // const spy = jest.spyOn(searchDelivery, 'searchDelivery');
-        // spy.mockReturnValue([]);
-
-        // or you could use the following depending on your use case:
-        // axios.get.mockImplementation(() => Promise.resolve(resp))
-        return Products.callProductList(coord).then(data => expect(data).toBeTruthy());
+describe('Products', () => {
+    it('Check if product service is defined', () => {
+        const mockInstance = searchDelivery.mock.instances[0];
+        const mockSearchDelivery = mockInstance.searchDelivery;
+        expect(searchDelivery).toBeDefined();
     });
 
-    test('snapshot renders', () => {
-        const coord = {
-            lat: '123',
-            lng: '123'
-        }
-        const arr = [];
-        const mockCallback = jest.fn();
-        mockCallback.getMockImplementation(coord);
-        const component = renderer.create(<Products productList={arr} cartList={arr} categoryList={arr} />);
-        const spy = jest.spyOn(component.instance(), "callProductList");
-
-        spy.getMockImplementation(coord);
-        let tree = component.toJSON();
-        expect(tree).toMatchSnapshot();
+    it('Check if product service "searchDelivery" was called', () => {
+        const mockInstance = searchDelivery.mock.instances[0];
+        expect(searchDelivery).toHaveBeenCalled();
     });
+
 });

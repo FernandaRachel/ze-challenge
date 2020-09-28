@@ -6,7 +6,6 @@ const Header = props => {
 
     const getAddress = () => {
         const address = sessionStorage.getItem('address');
-        console.log('get', address)
         return address ? address.replace("",'') : '';
     }
     return (

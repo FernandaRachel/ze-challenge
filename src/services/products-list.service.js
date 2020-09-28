@@ -69,7 +69,6 @@ export const searchDelivery = (lat, lng) => {
         })
 
     const dataPromise = promise.then((resp) => {
-        console.log(resp);
         return resp.data;
     })
 
@@ -127,7 +126,6 @@ export const getProductList = (id) => {
         })
 
     const dataPromise = promise.then((resp) => {
-        console.log(resp);
         return resp.data;
     })
 
@@ -155,7 +153,6 @@ export const getAllCategory = (id) => {
         })
 
     const dataPromise = promise.then((resp) => {
-        console.log(resp);
         return resp.data;
     })
 

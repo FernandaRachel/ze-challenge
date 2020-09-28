@@ -38,7 +38,7 @@ module.exports = {
     mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/public/index.html'
         }),
         // new ExtractTextPlugin('style.css'),
     ],

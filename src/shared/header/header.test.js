@@ -1,25 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Header from './header';
-import 'jest-localstorage-mock';
 
 describe('Header', () => {
-    test('snapshot renders', () => {
-        const arr = [];
+    test('Should be defined', () => {
         const component = renderer.create(<Header />);
-        let tree = component.toJSON();
-        expect(tree).toMatchSnapshot();
+        expect(component).toBeDefined();
     });
-
-    test('Expect session storage called', () => {
+  
+    test('Should have header class', () => {
         const component = renderer.create(<Header />);
-        const KEY = 'address',
-            VALUE = 'Rua Fake 333';
-        dispatch(action.update(KEY, VALUE));
-        expect(component.getInstance()).toHaveBeenLastCalledWith(KEY, VALUE);
-        const arr = [];
         let tree = component.toJSON();
-        expect(tree).toMatchSnapshot();
+        expect(tree.props.className).toContain('header');
     });
 });
 
