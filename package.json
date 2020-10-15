@@ -2,7 +2,7 @@
   "name": "ze-challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
+  "main": "App.jsx",
   "babel": {
     "presets": [
       "@babel/preset-env",

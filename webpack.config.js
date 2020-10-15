@@ -2,7 +2,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/App.js',
+    entry: './src/App.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: './index-bundle.js'
@@ -15,7 +15,6 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ['@babel/preset-env'],
                         plugins: ['@babel/plugin-proposal-class-properties']
                     }
                 },
@@ -34,12 +33,13 @@ module.exports = {
             }
         ],
     },
-
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
     mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/public/index.html'
-        }),
-        // new ExtractTextPlugin('style.css'),
+        })
     ],
 }
